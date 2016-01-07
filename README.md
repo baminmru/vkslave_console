@@ -1,10 +1,13 @@
 # vkslave_console
 <br/>
-<b>VKSLAVE</b> console is a part of VKSLAVE.RU project<br/>
+<b>VKSLAVE console</b> is a part of <a href="vkslave.ru"><b>VKSLAVE.RU</b> project</a><br/>
 Automate ADS works for VK.com <br/>
-<br/>
+<hr/>
 VKSLAVE console <br/>
-based on Ext JS 6  <br/>
-CodeIgnitor 3.0.3  <br/>
-vkPhpSdk    - https://github.com/AndreyGeonya/vkPhpSdk <br/>
+based on: <br/>
+<ul>
+	<li>Ext JS 6  <li/>
+	<li>CodeIgnitor 3.0.3  <li/>
+	<li>vkPhpSdk    https://github.com/AndreyGeonya/vkPhpSdk <li>
+</ul>
 
