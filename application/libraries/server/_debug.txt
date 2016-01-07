@@ -1,0 +1,148 @@
+>>>: SELECT B2G(iu_urok_defid) as iu_urok_defid, B2G(iu_urok_defid) as id,B2G(instanceid) as instanceid, iu_urok_def_BRIEF_F(iu_urok_defid , NULL) as  brief,ucode,  DATE_FORMAT(datecreated,'%Y-%m-%d %H:%i:%s') as  datecreated,B2G(subject) subject, iud_predmet_BRIEF_F(subject, NULL) as subject_grid,B2G(theClassnum) theclassnum, iu_clsinfo_BRIEF_F(theclassnum, NULL) as theclassnum_grid,plannum,B2G(maketown) maketown, iud_town_BRIEF_F(maketown, NULL) as maketown_grid,B2G(coursetype) coursetype, iud_ctype_BRIEF_F(coursetype, NULL) as coursetype_grid,rtheme,classtheme,thequarter, case thequarter  when 0 then '?' when 1 then 'I' when 2 then 'II' when 3 then 'III' when 4 then 'IV'End  as thequarter_grid,  schooldate as  schooldate,B2G(curator) curator, iu_u_def_BRIEF_F(curator, NULL) as curator_grid,B2G(theTeacher) theteacher, iu_tmdef_BRIEF_F(theteacher, NULL) as theteacher_grid,B2G(methodist) methodist, iu_tmdef_BRIEF_F(methodist, NULL) as methodist_grid,B2G(methodist2) methodist2, iu_tmdef_BRIEF_F(methodist2, NULL) as methodist2_grid,B2G(processtype) processtype, iud_process_def_BRIEF_F(processtype, NULL) as processtype_grid,testpageref, mainref
+                     FROM iu_urok_def
+                      WHERE 1   and ucode='math1005430' 
+					 
+			 sort not exist 
+
+			 >>>: SELECT B2G(iu_urok_docsid) as iu_urok_docsid, B2G(iu_urok_docsid) as id,B2G(instanceid) as instanceid, iu_urok_docs_BRIEF_F(iu_urok_docsid , NULL) as  brief,B2G(DocType) doctype, iud_doctype_BRIEF_F(doctype, NULL) as doctype_grid,B2G(AddBy) addby, iu_u_def_BRIEF_F(addby, NULL) as addby_grid,  DATE_FORMAT(adddate,'%Y-%m-%d %H:%i:%s') as  adddate,version,activeversion, case activeversion  when -1 then 'Да' when 0 then 'Нет'End  as activeversion_grid,B2G(filereftype) filereftype, iud_rt_def_BRIEF_F(filereftype, NULL) as filereftype_grid,fileref,fileref_ext,fileurl,filetext,info
+                     FROM iu_urok_docs
+                      WHERE 1   and instanceid=G2B('{C5B25CAC-F9D7-4B9C-A4A8-7E938F6402A3}') 
+					  ORDER BY doctype ASC
+			 sort :[doctype ASC] 
+
+			 >>>: SELECT nocomments, B2G(iu_urok_videoid) as iu_urok_videoid, B2G(iu_urok_videoid) as id,B2G(instanceid) as instanceid, iu_urok_video_BRIEF_F(iu_urok_videoid , NULL) as  brief,  DATE_FORMAT(adddate,'%Y-%m-%d %H:%i:%s') as  adddate,B2G(DocType) doctype, iud_videotype_BRIEF_F(doctype, NULL) as doctype_grid,activeversion, case activeversion  when -1 then 'Да' when 0 then 'Нет'End  as activeversion_grid,B2G(AddBy) addby, iu_u_def_BRIEF_F(addby, NULL) as addby_grid,version,fileurl,fileref,fileref_ext,info,origname
+                     FROM iu_urok_video
+                      WHERE 1   and instanceid=G2B('{C5B25CAC-F9D7-4B9C-A4A8-7E938F6402A3}') 
+					  ORDER BY doctype ASC,version DESC
+			 sort :[doctype ASC] 
+sort :[version DESC] 
+
+			 >>>: SELECT B2G(iu_cm_defid) as iu_cm_defid, B2G(iu_cm_defid) as id,B2G(instanceid) as instanceid, iu_cm_def_BRIEF_F(iu_cm_defid , NULL) as  brief,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,B2G(TheProcess) theprocess, iu_urok_def_BRIEF_F(theprocess, NULL) as theprocess_grid,isdiscussion, case isdiscussion  when -1 then 'Да' when 0 then 'Нет'End  as isdiscussion_grid,B2G(theDoc) thedoc, iu_urok_docs_BRIEF_F(thedoc, NULL) as thedoc_grid,B2G(theVideo) thevideo, iu_urok_video_BRIEF_F(thevideo, NULL) as thevideo_grid,thetheme,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid
+                     FROM iu_cm_def
+                      WHERE 1   and thevideo=G2B('{2EDAA5EB-2455-11E4-843B-00155D0ED711}') 
+					  ORDER BY theprocess_grid ASC
+			 sort :[theprocess_grid ASC] 
+
+			 >>>: SELECT B2G(iu_cm_defid) as iu_cm_defid, B2G(iu_cm_defid) as id,B2G(instanceid) as instanceid, iu_cm_def_BRIEF_F(iu_cm_defid , NULL) as  brief,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,B2G(TheProcess) theprocess, iu_urok_def_BRIEF_F(theprocess, NULL) as theprocess_grid,isdiscussion, case isdiscussion  when -1 then 'Да' when 0 then 'Нет'End  as isdiscussion_grid,B2G(theDoc) thedoc, iu_urok_docs_BRIEF_F(thedoc, NULL) as thedoc_grid,B2G(theVideo) thevideo, iu_urok_video_BRIEF_F(thevideo, NULL) as thevideo_grid,thetheme,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid
+                     FROM iu_cm_def
+                      WHERE 1   and thevideo=G2B('{0F4F7899-2838-11E4-843B-00155D0ED711}') 
+					  ORDER BY theprocess_grid ASC
+			 sort :[theprocess_grid ASC] 
+
+			 >>>: SELECT B2G(iu_cm_defid) as iu_cm_defid, B2G(iu_cm_defid) as id,B2G(instanceid) as instanceid, iu_cm_def_BRIEF_F(iu_cm_defid , NULL) as  brief,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,B2G(TheProcess) theprocess, iu_urok_def_BRIEF_F(theprocess, NULL) as theprocess_grid,isdiscussion, case isdiscussion  when -1 then 'Да' when 0 then 'Нет'End  as isdiscussion_grid,B2G(theDoc) thedoc, iu_urok_docs_BRIEF_F(thedoc, NULL) as thedoc_grid,B2G(theVideo) thevideo, iu_urok_video_BRIEF_F(thevideo, NULL) as thevideo_grid,thetheme,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid
+                     FROM iu_cm_def
+                      WHERE 1   and thevideo=G2B('{A38D2533-21EC-11E4-843B-00155D0ED711}') 
+					  ORDER BY theprocess_grid ASC
+			 sort :[theprocess_grid ASC] 
+
+			 >>>: SELECT B2G(iu_cm_timeid) as iu_cm_timeid, B2G(iu_cm_timeid) as id,B2G(instanceid) as instanceid, iu_cm_time_BRIEF_F(iu_cm_timeid , NULL) as  brief,starttime,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,ischecked, case ischecked  when -1 then 'Да' when 0 then 'Нет'End  as ischecked_grid,info,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid,endtime,B2G(messagetype) messagetype, iud_mt_def_BRIEF_F(messagetype, NULL) as messagetype_grid
+                     FROM iu_cm_time
+                      WHERE 1   and instanceid=G2B('{2EDF6DA4-2455-11E4-843B-00155D0ED711}') 
+					  ORDER BY thedate ASC
+			 sort :[thedate ASC] 
+
+			 >>>: SELECT B2G(iu_cm_timeid) as iu_cm_timeid, B2G(iu_cm_timeid) as id,B2G(instanceid) as instanceid, iu_cm_time_BRIEF_F(iu_cm_timeid , NULL) as  brief,starttime,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,ischecked, case ischecked  when -1 then 'Да' when 0 then 'Нет'End  as ischecked_grid,info,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid,endtime,B2G(messagetype) messagetype, iud_mt_def_BRIEF_F(messagetype, NULL) as messagetype_grid
+                     FROM iu_cm_time
+                      WHERE 1   and instanceid=G2B('{0F542923-2838-11E4-843B-00155D0ED711}') 
+					  ORDER BY thedate ASC
+			 sort :[thedate ASC] 
+
+			 >>>: SELECT B2G(iu_cm_timeid) as iu_cm_timeid, B2G(iu_cm_timeid) as id,B2G(instanceid) as instanceid, iu_cm_time_BRIEF_F(iu_cm_timeid , NULL) as  brief,starttime,  DATE_FORMAT(thedate,'%Y-%m-%d %H:%i:%s') as  thedate,ischecked, case ischecked  when -1 then 'Да' when 0 then 'Нет'End  as ischecked_grid,info,B2G(TheAuthor) theauthor, iu_u_def_BRIEF_F(theauthor, NULL) as theauthor_grid,endtime,B2G(messagetype) messagetype, iud_mt_def_BRIEF_F(messagetype, NULL) as messagetype_grid
+                     FROM iu_cm_time
+                      WHERE 1   and instanceid=G2B('{A392A81E-21EC-11E4-843B-00155D0ED711}') 
+					  ORDER BY thedate ASC
+			 sort :[thedate ASC] 
+
+			 >>>: CALL iu_urok_video_Save(
+                '{8237B30D-26A7-11E4-843B-00155D0ED711}',
+                '{A31D1426-A3FD-411C-AC24-FA41C787E9BD}',
+                '{AD7A9B30-283B-11E4-843B-00155D0ED711}'
+                , /*adddate*/ '2014-08-20 11:19:09' 
+					, /*doctype*/ '{4E25CEBF-FAC9-11E3-8FBF-00155D0ED711}' 
+					, /*activeversion*/ '0' 
+					, /*addby*/ '{EA6727BD-DBFD-11E3-8FBF-00155D0ED711}' 
+					, /*version*/ '0' 
+					, /*fileurl*/ '\\\\fs-ispb3\\graph_reserved\\2014.01-2014.12\\HIMIYA\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv\\render\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_04.mp4' 
+					, /*fileref*/ NULL 
+					, /*fileref_ext*/ NULL  
+						, /*info*/ NULL 
+					, /*nocomments*/ '0' 
+					, /*origname*/ NULL 
+					
+            )\r\n
+			>>>: SELECT iu_urok_def_thequarter,iu_urok_def_processtype,iu_task_isdelegated,iu_task_doer_states,iu_task_doer_id,iu_task_controller_id,ucode,urokid,instanceid,id,DATE_FORMAT(iu_task_finishdate,'%Y-%m-%d %H:%i:%s') iu_task_finishdate,DATE_FORMAT(iu_task_createdate,'%Y-%m-%d %H:%i:%s') iu_task_createdate,iu_task_delegatefrom,iu_task_doer_states,DATE_FORMAT(iu_task_senttodoer,'%Y-%m-%d %H:%i:%s') iu_task_senttodoer,iu_task_taskfinished,iu_task_controller_comment,DATE_FORMAT(iu_task_planenddate,'%Y-%m-%d %H:%i:%s') iu_task_planenddate,iu_task_doer,iu_task_processstatus,iu_task_taskcancelled,iu_task_info,iu_task_statetask,iu_task_ischecked,iu_task_contoller,iu_task_subj,iu_task_doer_comment,iu_task_theprocess
+                     FROM v_autoiu_task
+                      WHERE 1   and iu_task_urokdone LIKE "%0%" AND (( iu_task_taskfinished_val<>-1 and iu_task_taskcancelled_val<>-1 and iu_task_contoller='' ) or ( iu_task_contoller<>''  and  (( (iu_task_ischecked_val is null) or (iu_task_ischecked_val=0 ) )) and iu_task_taskcancelled_val<>-1) )  and  (iu_t_access_f('{1CC42CA0-2828-11E4-843B-00155D0ED711}',v_autoiu_task.instanceid)<>0 and instance_archived=0) 
+					  ORDER BY iu_task_createdate DESC LIMIT 0,30
+			 sort :[iu_task_createdate DESC] 
+
+			 >>>: SELECT count(*) FROM v_autoiu_task WHERE 1   and iu_task_urokdone LIKE "%0%" AND (( iu_task_taskfinished_val<>-1 and iu_task_taskcancelled_val<>-1 and iu_task_contoller='' ) or ( iu_task_contoller<>''  and  (( (iu_task_ischecked_val is null) or (iu_task_ischecked_val=0 ) )) and iu_task_taskcancelled_val<>-1) )  and  (iu_t_access_f('{1CC42CA0-2828-11E4-843B-00155D0ED711}',v_autoiu_task.instanceid)<>0 and instance_archived=0) 
+					
+>>>: CALL iu_urok_def_Save(
+                '{8237B30D-26A7-11E4-843B-00155D0ED711}',
+                '{A31D1426-A3FD-411C-AC24-FA41C787E9BD}',
+                '{F9FB3354-1842-4B9A-A8B2-16240C177C00}'
+                , /*ucode*/ 'chem1103568' 
+					, /*datecreated*/ '2014-03-28 14:59:39' 
+					, /*subject*/ '{96613280-B00C-11E3-B85D-00155D0ED711}' 
+					, /*theclassnum*/ '{A968CAF5-B71A-11E3-9DC2-E8039A0069B7}' 
+					, /*plannum*/ '39700' 
+					, /*maketown*/ '{8A45993A-966A-11E3-BE7E-E8039A0069B7}' 
+					, /*actiondate*/ NULL  
+					, /*actiondate2*/ NULL  
+					, /*coursetype*/ '{D9E7FD06-FC92-4242-B2FB-8CEEA39891A9}' 
+					, /*rtheme*/ 'Строение атома. Периодический закон' 
+					, /*classtheme*/ 'Изменение свойств простых веществ и соединений элементов в группах и периодах' 
+					, /*thequarter*/ '0' 
+					, /*schooldate*/ NULL  
+					, /*curator*/ '{96A3FFDB-DC06-11E3-8FBF-00155D0ED711}' 
+					, /*theteacher*/ '{F08D265D-B014-11E3-B85D-00155D0ED711}' 
+					, /*methodist*/ NULL  
+					, /*methodist2*/ NULL  
+					, /*processtype*/ '{F1F63E7D-A9CF-4E42-A3CD-D721152DDD26}' 
+					, /*ckksn*/ NULL  
+					, /*testpageref*/ 'http://test.interda.org/?p=39700' 
+					, /*mainref*/ NULL  
+					, /*thefilm*/ NULL  
+					, /*thefilmurl*/ NULL  
+					, /*info*/ '<table>\n<tbody>\n<tr>\n<td>Исходники</td>\n<td>\\\\bigstore\\InternetUrok_2014\\съёмки с 23.03 по 28.03.14\\27.03.2014\\Иванцова\\Изменение свойств простых веществ и соединений элементов в группах и периодах\\исходники</td>\n</tr>\n<tr>\n<td>Сценарий</td>\n<td>\\\\terminal\\forum\\РОКру\\раздел ШКОЛА\\химия\\супер-уроки_ИВАНЦОВА_все материалы\\Урок_11 класс_ Изменение св-в простых в-в и соединений эл-в в группах и периодах\\Сценарий. Изменение св-в простых в-в и соединений эл-в в группах и периодах. 11 класс.docx</td>\n</tr>\n<tr>\n<td>Монтажный лист</td>\n<td>\\\\bigstore\\InternetUrok_2014\\съёмки с 23.03 по 28.03.14\\27.03.2014\\Иванцова\\Изменение свойств простых веществ и соединений элементов в группах и периодах\\doc</td>\n</tr>\n<tr>\n<td>Титры</td>\n<td>\\\\terminal\\forum\\РОКру\\раздел ШКОЛА\\химия\\титры\\Иванцова\\Иванцова_титры_27.03.2014.docx</td>\n</tr>\n</tbody>\n</table>\n<div>\n<table>\n<tbody>\n<tr>\n<td>[flashvideo filename=videos/mont/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Yaroshik_1__1.flv /]</td>\n<td>strong&gt;Изначальный вариант без графики Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Yaroshik_1__1.flv\n\n<hr><a href=\"http://test.interda.org/videos/mont/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Yaroshik_1__1.flv\">Ссылка на скачивание FLV</a>\nЕсли по клику на ссылку видео открывается у Вас в браузере, щёлкните по ней правой кнопкой мыши и выберите опцию \"Сохранить по ссылке\"</td>\n</tr>\n</tbody>\n</table>\n<table>\n<tbody>\n<tr>\n<td><em>Рендер</em></td>\n<td>\\\\fs-ispb5\\_projects_MOSK\\27.03.2014\\Ivancova_27.03.2014\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv\\montage\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Yaroshik_1.mp4</td>\n</tr>\n</tbody>\n</table>\n</div>\n<table>\n<tbody>\n<tr>\n<td>[flashvideo filename=videos/mont/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv-06-05-14-ilja__360.flv /]</td>\n<td><strong>Исправленный вариант без графики Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv-06-05-14-ilja__360.flv</strong> <hr><a href=\"http://test.interda.org/videos/mont/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv-06-05-14-ilja__360.flv\">Ссылка на скачивание FLV</a>\nЕсли по клику на ссылку видео открывается у Вас в браузере, щёлкните по  ней правой кнопкой мыши и выберите опцию \"Сохранить по ссылке\"</td>\n</tr>\n</tbody>\n</table>\n<table>\n<tbody>\n<tr>\n<td><em>Рендер</em></td>\n<td>\\\\fs-ispb5\\_projects_MOSK\\27.03.2014\\Ivancova_27.03.2014\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv\\montage\\Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv-06-05-14-ilja.mp4</td>\n</tr>\n</tbody>\n</table>\n<hr>\n\n\n\n[flashvideo filename=videos/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_01_.360.flv /]\nИзначальный вариант с графикой Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_01_.360.flv\n\n <a href=\"http://178.16.153.158/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_01_.360.flv\">ссылка на видео</a>\n\n\nОтветвления (3):\n1) 09:01 Относительная сила галогеноводородных кислот (10:32-11:48)\n2) 06:50 Энергия ионизации (11:48-12:45)\n3) 9:30 Диагональное сходство (12:45-13:34)\n\n\n[flashvideo filename=videos/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_02_.360.flv /]\nИсправленный вариант с графикой Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_02_.360.flv\n\n <a href=\"http://178.16.153.158/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_02_.360.flv\">ссылка на видео</a>\n\n[flashvideo filename=videos/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_03_.360.flv /]\nИсправленный вариант с графикой Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_03_.360.flv\n <a href=\"http://178.16.153.158/Ivancova_27.03.2014_Izmenen_svoystv_prost_veshestv_Polyakova_03_.360.flv\">ссылка на видео</a>' 
+					, /*notes*/ 'Исполнитель: http://interneturok.ru/ru/school/chemistry/11-klass/bstroenie-atoma-periodicheskij-zakonb/izmenenie-svoystv-prostyh-veschestv-i-soedineniy-elementov-v-gruppah-i-periodah?seconds=0 опубликован новый урок' 
+					)>>>: SELECT instanceid,id,iu_urok_def_theclassnum,iu_urok_def_iu_urok_stage,iu_urok_def_testpageref,iu_urok_def_subject,iu_urok_def_rtheme,iu_urok_def_ucode,iu_urok_def_schooldate ,DATE_FORMAT(iu_urok_def_datecreated,'%Y-%m-%d %H:%i:%s') iu_urok_def_datecreated,
+		DATE_FORMAT(iu_urok_def_actiondate,'%Y-%m-%d %H:%i:%s') iu_urok_def_actiondate,
+		DATE_FORMAT(iu_urok_def_actiondate2,'%Y-%m-%d %H:%i:%s') iu_urok_def_actiondate2,
+		iu_urok_def_ckksn,
+		iu_urok_def_thefilm,
+		iu_urok_def_thefilmurl,
+		iu_urok_def_mainref,iu_urok_def_topstage,iu_urok_def_coursetype,iu_urok_def_isdone,iu_urok_def_methodist,iu_urok_def_processtype,iu_urok_def_maketown,iu_urok_def_curator,iu_urok_def_thequarter,iu_urok_def_theteacher,iu_urok_def_methodist2,iu_urok_def_classtheme,iu_urok_def_plannum,iu_urok_def_manualcontrol,iu_urok_def_taskdelayed,iu_urok_def_laststate,iu_urok_def_lastmessage
+                     FROM v_autoiu_urok_def
+                      WHERE 1   and instanceid LIKE "%{A31D1426-A3FD-411C-AC24-FA41C787E9BD}%"  and  (iu_urok_access_f('{8237B30D-26A7-11E4-843B-00155D0ED711}',v_autoiu_urok_def.instanceid)<>0 and instance_archived=0) 
+					  ORDER BY iu_urok_def_datecreated DESC LIMIT 0,30
+			 sort :[iu_urok_def_datecreated DESC] 
+
+			 >>>: SELECT count(*) FROM v_autoiu_urok_def WHERE 1   and instanceid LIKE "%{A31D1426-A3FD-411C-AC24-FA41C787E9BD}%"  and  (iu_urok_access_f('{8237B30D-26A7-11E4-843B-00155D0ED711}',v_autoiu_urok_def.instanceid)<>0 and instance_archived=0) 
+					
+>>>: SELECT B2G(iu_urok_creatorsid) as iu_urok_creatorsid, B2G(iu_urok_creatorsid) as id,B2G(instanceid) as instanceid, iu_urok_creators_BRIEF_F(iu_urok_creatorsid , NULL) as  brief,B2G(processrole) processrole, iu_crole_BRIEF_F(processrole, NULL) as processrole_grid,B2G(doer) doer, iu_u_def_BRIEF_F(doer, NULL) as doer_grid,doers, iu_crole_MREF_F(doers, NULL) as  doers_grid,B2G(selectby) selectby, iu_u_def_BRIEF_F(selectby, NULL) as selectby_grid,  DATE_FORMAT(selectday,'%Y-%m-%d %H:%i:%s') as  selectday
+                     FROM iu_urok_creators
+                      WHERE 1   and instanceid=G2B('{A31D1426-A3FD-411C-AC24-FA41C787E9BD}') 
+					  ORDER BY processrole ASC
+			 sort :[processrole ASC] 
+
+			 >>>: SELECT B2G(iu_urok_docsid) as iu_urok_docsid, B2G(iu_urok_docsid) as id,B2G(instanceid) as instanceid, iu_urok_docs_BRIEF_F(iu_urok_docsid , NULL) as  brief,B2G(DocType) doctype, iud_doctype_BRIEF_F(doctype, NULL) as doctype_grid,B2G(AddBy) addby, iu_u_def_BRIEF_F(addby, NULL) as addby_grid,  DATE_FORMAT(adddate,'%Y-%m-%d %H:%i:%s') as  adddate,version,activeversion, case activeversion  when -1 then 'Да' when 0 then 'Нет'End  as activeversion_grid,B2G(filereftype) filereftype, iud_rt_def_BRIEF_F(filereftype, NULL) as filereftype_grid,fileref,fileref_ext,fileurl,filetext,info,origname
+                     FROM iu_urok_docs
+                      WHERE 1   and instanceid=G2B('{A31D1426-A3FD-411C-AC24-FA41C787E9BD}') 
+					  ORDER BY doctype ASC
+			 sort :[doctype ASC] 
+
+			 >>>: SELECT B2G(iu_urok_defid) as iu_urok_defid, B2G(iu_urok_defid) as id,B2G(instanceid) as instanceid, iu_urok_def_BRIEF_F(iu_urok_defid , NULL) as  brief,ucode,  DATE_FORMAT(datecreated,'%Y-%m-%d %H:%i:%s') as  datecreated,B2G(subject) subject, iud_predmet_BRIEF_F(subject, NULL) as subject_grid,B2G(theClassnum) theclassnum, iu_clsinfo_BRIEF_F(theclassnum, NULL) as theclassnum_grid,plannum,B2G(maketown) maketown, iud_town_BRIEF_F(maketown, NULL) as maketown_grid,  DATE_FORMAT(actiondate,'%Y-%m-%d') as  actiondate,  DATE_FORMAT(actiondate2,'%Y-%m-%d') as  actiondate2,B2G(coursetype) coursetype, iud_ctype_BRIEF_F(coursetype, NULL) as coursetype_grid,rtheme,classtheme,thequarter, case thequarter  when 0 then '?' when 1 then 'I' when 2 then 'II' when 3 then 'III' when 4 then 'IV'End  as thequarter_grid,  schooldate as  schooldate,B2G(curator) curator, iu_u_def_BRIEF_F(curator, NULL) as curator_grid,B2G(theTeacher) theteacher, iu_tmdef_BRIEF_F(theteacher, NULL) as theteacher_grid,B2G(methodist) methodist, iu_tmdef_BRIEF_F(methodist, NULL) as methodist_grid,B2G(methodist2) methodist2, iu_tmdef_BRIEF_F(methodist2, NULL) as methodist2_grid,B2G(processtype) processtype, iud_process_def_BRIEF_F(processtype, NULL) as processtype_grid,B2G(CKKSn) ckksn, iud_sn_def_BRIEF_F(ckksn, NULL) as ckksn_grid,testpageref,mainref,B2G(TheFilm) thefilm, iu_urok_def_BRIEF_F(thefilm, NULL) as thefilm_grid,thefilmurl,info,notes
+                     FROM iu_urok_def
+                      WHERE 1   and instanceid=G2B('{A31D1426-A3FD-411C-AC24-FA41C787E9BD}') 
+					  ORDER BY classtheme ASC
+			 sort :[classtheme ASC] 
+
+			 >>>: SELECT B2G(iu_urok_videoid) as iu_urok_videoid, B2G(iu_urok_videoid) as id,B2G(instanceid) as instanceid, iu_urok_video_BRIEF_F(iu_urok_videoid , NULL) as  brief,  DATE_FORMAT(adddate,'%Y-%m-%d %H:%i:%s') as  adddate,B2G(DocType) doctype, iud_videotype_BRIEF_F(doctype, NULL) as doctype_grid,activeversion, case activeversion  when -1 then 'Да' when 0 then 'Нет'End  as activeversion_grid,B2G(AddBy) addby, iu_u_def_BRIEF_F(addby, NULL) as addby_grid,version,fileurl,fileref,fileref_ext,info,nocomments, case nocomments  when -1 then 'Да' when 0 then 'Нет'End  as nocomments_grid,origname
+                     FROM iu_urok_video
+                      WHERE 1   and instanceid=G2B('{A31D1426-A3FD-411C-AC24-FA41C787E9BD}') 
+					  ORDER BY doctype ASC
+			 sort :[doctype ASC] 
+
+			 
