@@ -2652,6 +2652,7 @@
             ,{name: 'id',type: 'string'}
             ,{name: 'instanceid',type: 'string'}
             ,{name: 'brief',type: 'string'}
+            ,{name:'definterval', type: 'number'}
             ,{name:'repeatabletask', type: 'int'}
             ,{name:'repeatabletask_grid', type: 'string'}
             ,{name:'title', type: 'string'}
@@ -3262,6 +3263,9 @@
             ,{name:'cab_grid', type: 'string'}
             ,{name:'rotation', type: 'string'}
             ,{name:'rotation_grid', type: 'string'}
+            ,{name:'vkusr', type: 'string'}
+            ,{name:'vkusr_grid', type: 'string'}
+            ,{name:'token', type: 'string'}
             ,{name:'repeat_interval', type: 'number'}
             ,{name:'result', type: 'string'}
         ]

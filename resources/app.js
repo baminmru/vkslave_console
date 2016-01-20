@@ -33,14 +33,11 @@ Ext.Loader.setConfig({
  
  Ext.Loader.setConfig({enabled: true});
 
-
-
-
-
+ 
 var menuPanel;
 var leftPanel;
 var contentPanel;
-var stateFulSystem=false;
+var stateFulSystem=true;
 
 
 Ext.onReady(function () {
@@ -56,14 +53,9 @@ Ext.onReady(function () {
 		stateFulSystem=false;
 
 	}
-
-	
-    // UserLogin();
 	MyInit();
-	SysLogin();
 	EnableActions();
 });
-
 
 function EnableActions(){
 
@@ -113,27 +105,6 @@ function EnableActions(){
 };
 
 
-function SysLogin(){
-	
-	Ext.Ajax.request(
-			{
-				url: rootURL+'index.php/app/login',
-				method:  'POST',
-				params: 
-				{ 
-					loginUsername: vkID,
-					loginPassword: vkID,
-				},
-				success: function(response){
-					
-
-				}
-			}
-		);
-	
-};
-
-
 function MakeExit(btn){
 	if(btn=="yes"){
 		Ext.Ajax.request(
@@ -146,9 +117,10 @@ function MakeExit(btn){
 					}
 				}
 			);
-		//document.location=document.location;
+		
 	}
 };
+
 var actionEXIT = Ext.create('Ext.Action', {
 	itemId:'actionEXIT',
 	text: 'Выход',
@@ -173,7 +145,6 @@ var actionChangePassword = Ext.create('Ext.Action', {
 		}
 });
 
-
 //actionLoadCategory,actionLoadCountry,actionLoadRegions,actionLoadTowns
 
 function LoadCategory (btn){
@@ -191,9 +162,6 @@ function LoadCategory (btn){
 	}
 };
 
-
-
-
 function LoadCountry (btn){
 	if(btn=="yes"){
 		Ext.Ajax.request(
@@ -208,7 +176,6 @@ function LoadCountry (btn){
 			);
 	}
 };
-
 
 function LoadRegions (btn){
 	if(btn=="yes"){
@@ -240,7 +207,7 @@ function LoadTowns (btn){
 			);
 	}
 };
-
+/*
 function LoadUser (btn){
 	if(btn=="yes"){
 		Ext.Ajax.request(
@@ -270,7 +237,6 @@ function LoadAds (btn){
 			);
 	}
 };
-
 
 function LoadAdsStat (btn){
 	if(btn=="yes"){
@@ -302,7 +268,6 @@ function LoadAdsDemografy (btn){
 	}
 };
 
-
 var actionLoadAdsDemografy = Ext.create('Ext.Action', {
 	itemId:'actionLoadAdsOvStat',
 	text: 'Обновить демографическую статистику',
@@ -314,8 +279,6 @@ var actionLoadAdsDemografy = Ext.create('Ext.Action', {
 			 LoadAdsDemografy );
 	}
 });
-
-
 
 var actionLoadAdsStat = Ext.create('Ext.Action', {
 	itemId:'actionLoadAdsStat',
@@ -353,6 +316,8 @@ var actionLoadUser = Ext.create('Ext.Action', {
 		
 	}
 });
+*/
+
 
 var actionLoadTowns = Ext.create('Ext.Action', {
 	itemId:'actionLoadTowns',
@@ -380,7 +345,6 @@ var actionLoadRegions = Ext.create('Ext.Action', {
 	}
 });
 
-
 var actionLoadCountry = Ext.create('Ext.Action', {
 	itemId:'actionLoadCountry',
 	text: 'Загрузить список стран',
@@ -393,7 +357,6 @@ var actionLoadCountry = Ext.create('Ext.Action', {
 		
 	}
 });
-
 
 var actionLoadCategory = Ext.create('Ext.Action', {
 	itemId:'actionLoadCategory',
@@ -408,8 +371,6 @@ var actionLoadCategory = Ext.create('Ext.Action', {
 	}
 });
 
-
-
 var actionToDo = Ext.create('Ext.Action', {
 	itemId:'actionToDo',
 	text: 'В разработке',
@@ -420,7 +381,6 @@ var actionToDo = Ext.create('Ext.Action', {
 		
 	}
 });
-
 
 function MyInit(){
 
@@ -510,14 +470,14 @@ function MyInit(){
             itemId:'toolbar',
             xtype:'toolbar',
             items:[ 
-               /* {
+                {
 					itemId:'actionFile',
 				    text:'Файл',
                     iconCls:'icon-folder',
-                    menu:[ actionChangePassword,actionEXIT] 
+                    menu:[ /*actionChangePassword,*/actionEXIT] 
 				
 				}
-				,*/
+				,
 				{
 					itemId:'actionDict',
 				    text:'Справочники',
@@ -564,7 +524,7 @@ function MyInit(){
 					itemId:'actionLoad',
 				    text:'Тесты',
                     iconCls:'icon-page_white_lightning',
-                    menu:[actionLoadUser,actionLoadAds,actionLoadAdsStat, actionLoadAdsDemografy,actionLoadCategory,actionLoadCountry,actionLoadRegions,actionLoadTowns] 
+                    menu:[/*actionLoadUser,actionLoadAds,actionLoadAdsStat, actionLoadAdsDemografy,*/ actionLoadCategory,actionLoadCountry,actionLoadRegions,actionLoadTowns] 
 				
 				}
 				
@@ -645,8 +605,6 @@ function MyInit(){
 	//setInterval(function() { app_info.load() }, 60000);
 	
 }
-
-
 
 var defaultMenuDisabled=false;
 var defaultMenuHidden=false;

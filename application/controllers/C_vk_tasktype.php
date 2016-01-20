@@ -12,6 +12,7 @@
                 ,'instanceid' =>  $this->input->get_post('instanceid', TRUE)
                 ,'title' =>   $this->input->get_post('title', TRUE)
                 ,'repeatabletask' =>   $this->input->get_post('repeatabletask', TRUE)
+                ,'definterval' =>   $this->input->get_post('definterval', TRUE)
             );
             $vk_tasktype = $this->m_vk_tasktype->setRow($data);
             print json_encode($vk_tasktype);
@@ -23,6 +24,7 @@
                 ,'instanceid' =>  $this->input->get_post('instanceid', TRUE)
                 ,'title' =>   $this->input->get_post('title', TRUE)
                 ,'repeatabletask' =>   $this->input->get_post('repeatabletask', TRUE)
+                ,'definterval' =>   $this->input->get_post('definterval', TRUE)
             );
                 $instanceid =  $this->input->get_post('instanceid', TRUE);
             $vk_tasktype= $this->m_vk_tasktype->newRow($instanceid,$data);

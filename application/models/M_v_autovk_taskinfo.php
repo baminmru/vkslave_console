@@ -30,17 +30,17 @@ class  M_v_autovk_taskinfo extends CI_Model {
 			    //case 'value':
 			    	//$cond = '';
 			    	//break;
-			  case 'vk_taskinfo_repeat_interval_le':
-			  $cond = 'vk_taskinfo_repeat_interval<='.$obj->value;
-			  break;
-			  case 'vk_taskinfo_repeat_interval_ge':
-			  $cond = 'vk_taskinfo_repeat_interval>='.$obj->value;
-			  break;
 			  case 'vk_taskinfo_crdate_le':
 			  $cond = 'vk_taskinfo_crdate<="'.$obj->value.'"';
 			  break;
 			  case 'vk_taskinfo_crdate_ge':
 			  $cond = 'vk_taskinfo_crdate>="'.$obj->value.'"';
+			  break;
+			  case 'vk_taskinfo_repeat_interval_le':
+			  $cond = 'vk_taskinfo_repeat_interval<='.$obj->value;
+			  break;
+			  case 'vk_taskinfo_repeat_interval_ge':
+			  $cond = 'vk_taskinfo_repeat_interval>='.$obj->value;
 			  break;
 			  case 'vk_taskinfo_lastdate_le':
 			  $cond = 'vk_taskinfo_lastdate<="'.$obj->value.'"';
@@ -69,12 +69,12 @@ class  M_v_autovk_taskinfo extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_camp,vk_taskinfo_name,vk_taskinfo_ads,vk_taskinfo_tasktype,vk_taskinfo_rotation,vk_taskinfo_repeat_interval,vk_taskinfo_cab,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_isdone,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_result','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_vkusr,vk_taskinfo_camp,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_name,vk_taskinfo_tasktype,vk_taskinfo_result,vk_taskinfo_ads,vk_taskinfo_repeat_interval,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_rotation,vk_taskinfo_isdone,vk_taskinfo_cab','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_camp,vk_taskinfo_name,vk_taskinfo_ads,vk_taskinfo_tasktype,vk_taskinfo_rotation,vk_taskinfo_repeat_interval,vk_taskinfo_cab,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_isdone,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_result','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_vkusr,vk_taskinfo_camp,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_name,vk_taskinfo_tasktype,vk_taskinfo_result,vk_taskinfo_ads,vk_taskinfo_repeat_interval,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_rotation,vk_taskinfo_isdone,vk_taskinfo_cab','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_camp,vk_taskinfo_name,vk_taskinfo_ads,vk_taskinfo_tasktype,vk_taskinfo_rotation,vk_taskinfo_repeat_interval,vk_taskinfo_cab,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_isdone,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_result', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_taskinfo','FieldList'=>'instanceid,id,vk_taskinfo_vkusr,vk_taskinfo_camp,DATE_FORMAT(vk_taskinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_crdate,vk_taskinfo_name,vk_taskinfo_tasktype,vk_taskinfo_result,vk_taskinfo_ads,vk_taskinfo_repeat_interval,DATE_FORMAT(vk_taskinfo_lastdate,\'%Y-%m-%d %H:%i:%s\') vk_taskinfo_lastdate,vk_taskinfo_rotation,vk_taskinfo_isdone,vk_taskinfo_cab', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

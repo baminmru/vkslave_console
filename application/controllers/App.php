@@ -5,12 +5,14 @@ class App extends CI_Controller
 {
     public function index()
     {
-
+	
     }
 
     public function login()
     {
-        $CI =& get_instance();
+     
+/*	 
+		$CI =& get_instance();
         $loginUsername = $this->input->get_post('loginUsername', TRUE);
         $loginPassword = $this->input->get_post('loginPassword', TRUE);
         $res = $CI->jservice->get(array('Action' => 'Login', 'Email' => $loginUsername, 'PasswordHash' => $loginPassword, 'ApplicationID' => '{209696D4-AF4D-4C82-A1D2-C6989BEF91D7}'));
@@ -25,7 +27,9 @@ class App extends CI_Controller
             $this->output->set_output(json_encode(array('success' => true)));
         } else {
             $this->output->set_output(json_encode(array('success' => false)));
-        }
+  
+      }
+*/
 		
     }
 	
@@ -259,13 +263,18 @@ class App extends CI_Controller
 	
 	 public function logout()
     {
-        $CI =& get_instance();
+    
+		$CI =& get_instance();
+		setcookie('lastvkid', '', time()-300, "/", "vas.baminote2.local", false, true);
+		$_COOKIE['lastvkid']='';
       
         $res = $CI->jservice->get(array('Action' => 'Logout'));
        
         $this->output->set_output(json_encode(array('success' => true)));
 		
 		$_SESSION['B2SESSION']='';
+		
+	
 		
 		log_message('debug', 'logout B2SESSION= >'.$_SESSION['B2SESSION'].'<' );
 		

@@ -12,13 +12,21 @@ class JService
 		return $dconfig['temppath'];
 	}
 
+	public function dbConfig(){
+		global $dconfig;
+		return $dconfig['db'];
+	}
+
  function get($data)
     {
 		global $dconfig;
 		
         $CI =& get_instance();
-	//	session_start();
-		$data = array_merge($data, array('SessionID'=>$_SESSION['B2SESSION']));
+
+		if(isset($_SESSION['B2SESSION']))
+			$data = array_merge($data, array('SessionID'=>$_SESSION['B2SESSION']));
+		else
+			$data = array_merge($data, array('SessionID'=>''));
 	
 		
 		$app = new B2service($dconfig, $data);

@@ -4,7 +4,7 @@ class  M_vk_tasktype extends CI_Model {
     function getRow($empId) {
     $result = array('success' => false, 'msg' => 'No Row ID for retrive data');
 	if (!empty($empId)){
-	    $res = $this->jservice->get(array('Action' => 'GetRowData','FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'PartName' => 'vk_tasktype', 'ID' =>  $empId 	));
+	    $res = $this->jservice->get(array('Action' => 'GetRowData','FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,definterval,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'PartName' => 'vk_tasktype', 'ID' =>  $empId 	));
 	    if (!empty($res)) {
 	        $result = $res[0];
 	    }
@@ -49,7 +49,7 @@ class  M_vk_tasktype extends CI_Model {
     }
     function getRows($sort=array())
 		{
-	    $res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'ViewName' => 'vk_tasktype'));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,definterval,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'ViewName' => 'vk_tasktype'));
 	    if (count($res)) {
 	        return $res;
 	    } else {
@@ -58,7 +58,7 @@ class  M_vk_tasktype extends CI_Model {
 		}
     function getRowsByInstance($id,$sort=array())
 		{
-	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'ViewName' => 'vk_tasktype', 'WhereClause' => 'instanceid=G2B(\''. $id . '\')'));
+	$res = $this->jservice->get(array('Action' => 'GetViewData','Sort'=>$sort,'FieldList'=>'B2G(vk_tasktypeid) as vk_tasktypeid, B2G(vk_tasktypeid) as id,B2G(instanceid) as instanceid, VK_TASKTYPE_BRIEF_F(vk_tasktypeid , NULL) as  brief,definterval,repeatabletask, case repeatabletask  when -1 then \'Да\' when 0 then \'Нет\' else \'\'  end   as repeatabletask_grid,title', 'ViewName' => 'vk_tasktype', 'WhereClause' => 'instanceid=G2B(\''. $id . '\')'));
 	if (count($res) == 0) {
 	    return null;
 	} else {

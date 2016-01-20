@@ -69,6 +69,8 @@ Ext.define('grid_autovk_taskinfo', {
             ,
             {text: "Завершена", width:120, dataIndex: 'vk_taskinfo_isdone', sortable: true}
             ,
+            {text: "Пользователь", width:120, dataIndex: 'vk_taskinfo_vkusr', sortable: true}
+            ,
             {text: "Кабинет", width:120, dataIndex: 'vk_taskinfo_cab', sortable: true}
             ,
             {text: "Кампания", width:120, dataIndex: 'vk_taskinfo_camp', sortable: true}
@@ -275,6 +277,40 @@ fieldLabel:  '',
 emptyText:      'Завершена',
 hideLabel:  true,
 listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Завершена'});}}
+}
+,
+{
+
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			this.expand();
+		}
+},
+editable: true,
+enableRegEx: true,
+queryMode:'local',
+listeners:{  focus: function()   { if(this.store.count(false)==0) this.store.load();  } ,render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Пользователь'});} },
+xtype:  'combobox',
+store: cmbstore_vk_usr,
+valueField:     'id',
+displayField:   'brief',
+typeAhead: true,
+name:   'vk_taskinfo_vkusr_id',
+itemId:   'vk_taskinfo_vkusr_id',
+fieldLabel:  '',
+emptyText:      'Пользователь',
+hideLabel:  true
 }
 ,
 {

@@ -32,10 +32,12 @@ var p1_valid=false;
                     ,lastdate: active.get('lastdate') 
                     ,result: active.get('result') 
                     ,isdone: active.get('isdone') 
+                    ,vkusr: active.get('vkusr') 
                     ,cab: active.get('cab') 
                     ,camp: active.get('camp') 
                     ,ads: active.get('ads') 
                     ,rotation: active.get('rotation') 
+                    ,token: active.get('token') 
                 }
                 , success: function(response){
                 var text = response.responseText;
@@ -264,6 +266,45 @@ listeners:{  select: function ( combo, record, eOpts ) {combo.up('form' ).active
 fieldLabel:  'Завершена',
 labelClsExtra:'x-item-mandatory',
 allowBlank:false
+}
+,
+{
+        minWidth: 365,
+        width: 365,
+        maxWidth: 365,
+        x: 375, 
+        y: 110, 
+labelWidth:140,
+
+xtype:  'combobox',
+trigger1Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+onTrigger1Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('vkusr', records.get('id'));}  },
+store: cmbstore_vk_usr,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'vkusr_grid',
+itemId:   'vkusr_grid',
+fieldLabel:  'Пользователь',
+labelClsExtra:'x-item-mandatory',
+allowBlank:false
+}
+,
+{
+xtype:  'hidden',
+name:   'token',
+fieldLabel:  'Токен'
 }
        ],
        height: 165 
@@ -620,6 +661,45 @@ labelClsExtra:'x-item-mandatory',
 allowBlank:false
        ,labelWidth: 120
 }
+,
+{
+        minWidth: 220,
+        width: 220,
+        maxWidth: 220,
+        x: 255, 
+        y: 110, 
+
+xtype:  'combobox',
+trigger1Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+onTrigger1Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  select: function ( combo, records, eOpts ) {combo.up('form' ).activeRecord.set('vkusr', records.get('id'));}  },
+store: cmbstore_vk_usr,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'vkusr_grid',
+itemId:   'vkusr_grid',
+fieldLabel:  'Пользователь',
+labelClsExtra:'x-item-mandatory',
+allowBlank:false
+       ,labelWidth: 120
+}
+,
+{
+xtype:  'hidden',
+name:   'token',
+fieldLabel:  'Токен'
+}
        ], width: 770,
        height: 185 
         }
@@ -847,10 +927,12 @@ allowBlank:true
                     ,lastdate:function() { if(active.get('lastdate')) return active.get('lastdate').toLocaleFormat('%Y-%m-%d %H:%M:%S'); else return null;}()
                     ,result: active.get('result') 
                     ,isdone: active.get('isdone') 
+                    ,vkusr: active.get('vkusr') 
                     ,cab: active.get('cab') 
                     ,camp: active.get('camp') 
                     ,ads: active.get('ads') 
                     ,rotation: active.get('rotation') 
+                    ,token: active.get('token') 
                 }
                 , success: function(response){
                 var text = response.responseText;

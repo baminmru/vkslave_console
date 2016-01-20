@@ -134,6 +134,8 @@ showGroupsText:  'Показать группировку'
 {text: "Название", width: 200, dataIndex: 'title', sortable: true}
             ,
 {text: "Периодическая задача", width:80, dataIndex: 'repeatabletask_grid', sortable: true}
+            ,
+{text: "Интервал (мин)", width:60, dataIndex: 'definterval', sortable: true}
         ]
        ,
     listeners: {
@@ -227,8 +229,24 @@ labelClsExtra:'x-item-mandatory',
 allowBlank:false
        ,labelWidth: 120
 }
+,
+{
+        minWidth: 740,
+        width: 740,
+        maxWidth: 740,
+        x: 5, 
+        y: 110, 
+
+xtype:  'numberfield',
+value:  '0',
+name:   'definterval',
+itemId:   'definterval',
+fieldLabel:  'Интервал (мин)',
+allowBlank:true
+       ,labelWidth: 120
+}
        ], width: 770,
-       height: 130 
+       height: 185 
         }
           ],//items = part panel
         instanceid:'',
@@ -285,6 +303,7 @@ allowBlank:false
                     ,vk_tasktypeid: active.get('vk_tasktypeid')
                     ,title: active.get('title') 
                     ,repeatabletask: active.get('repeatabletask') 
+                    ,definterval: active.get('definterval') 
                 }
                 , success: function(response){
                 var text = response.responseText;
@@ -326,13 +345,13 @@ allowBlank:false
 
 Ext.define('EditWindow_vk_tasktype', {
     extend:  'Ext.window.Window',
-    maxHeight: 270,
+    maxHeight: 325,
     maxWidth: 900,
     autoScroll:true,
     minWidth: 750,
     width: 800,
-    minHeight:220,
-    height:230,
+    minHeight:275,
+    height:285,
     constrainHeader :true,
     layout:  'absolute',
     autoShow: true,
