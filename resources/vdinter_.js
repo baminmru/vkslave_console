@@ -72,7 +72,7 @@ int_vk_interest_
     }); //Ext.Create
     if(RootPanel==true){
        vdinter_.closable= true;
-       vdinter_.title= 'Интересы';
+       vdinter_.title= 'Интересы. Категории';
        vdinter_.frame= true;
     }else{
        vdinter_.closable= false;

@@ -4,15 +4,15 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
+            ,{name:'vk_camp_start_time', type: 'string'}
+            ,{name:'vk_camp_all_limit', type: 'number'}
+            ,{name:'vk_camp_prj', type: 'string'}
+            ,{name:'vk_camp_name', type: 'string'}
+            ,{name:'vk_camp_status', type: 'string'}
             ,{name:'vk_camp_day_limit', type: 'number'}
             ,{name:'vk_camp_vk_usr', type: 'string'}
-            ,{name:'vk_camp_name', type: 'string'}
             ,{name:'vk_camp_stop_time', type: 'string'}
-            ,{name:'vk_camp_status', type: 'string'}
             ,{name:'vk_camp_campagin_id', type: 'string'}
-            ,{name:'vk_camp_all_limit', type: 'number'}
-            ,{name:'vk_camp_start_time', type: 'string'}
-            ,{name:'vk_camp_prj', type: 'string'}
             ,{name:'vk_camp_vk_cab', type: 'string'}
         ]
     });

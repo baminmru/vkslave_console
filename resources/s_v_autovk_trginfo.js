@@ -4,14 +4,14 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
-            ,{name:'vk_trginfo_lifetime', type: 'number'}
-            ,{name:'vk_trginfo_vkid', type: 'string'}
             ,{name:'vk_trginfo_info', type: 'string'}
             ,{name:'vk_trginfo_cab', type: 'string'}
-            ,{name:'vk_trginfo_pixel', type: 'string'}
-            ,{name:'vk_trginfo_audience_count', type: 'number'}
-            ,{name:'vk_trginfo_trgdomain', type: 'string'}
+            ,{name:'vk_trginfo_vkid', type: 'string'}
             ,{name:'vk_trginfo_name', type: 'string'}
+            ,{name:'vk_trginfo_audience_count', type: 'number'}
+            ,{name:'vk_trginfo_lifetime', type: 'number'}
+            ,{name:'vk_trginfo_pixel', type: 'string'}
+            ,{name:'vk_trginfo_trgdomain', type: 'string'}
         ]
     });
 

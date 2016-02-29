@@ -4,10 +4,10 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
-            ,{name:'vk_brkinfo_crdate', type: 'string'}
+            ,{name:'vk_brkinfo_name', type: 'string'}
             ,{name:'vk_brkinfo_ads', type: 'string'}
             ,{name:'vk_brkinfo_rotation', type: 'string'}
-            ,{name:'vk_brkinfo_name', type: 'string'}
+            ,{name:'vk_brkinfo_crdate', type: 'string'}
         ]
     });
 

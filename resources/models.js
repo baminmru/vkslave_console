@@ -2327,6 +2327,44 @@
        }
     });
 
+ Ext.define('model_vk_funs',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_funsid',type: 'string'}
+            ,{name: 'id',type: 'string'}
+            ,{name: 'instanceid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+            ,{name:'title', type: 'string'}
+        ]
+    });
+
+ Ext.define('cmbmodel_vk_funs',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_funsid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+        ]
+    });
+    var cmbstore_vk_funs_loaded=false;
+    var cmbstore_vk_funs = Ext.create('Ext.data.Store', {
+        model:'cmbmodel_vk_funs',
+        autoLoad: false,
+        autoSync: false,
+        proxy: {
+            type:   'ajax',
+                url:   rootURL+'index.php/c_vk_funs/getRows',
+            reader: {
+                type:   'json'
+                ,rootProperty:  'data'
+                ,successProperty:  'success'
+                ,messageProperty:  'msg'
+            }
+        },
+       listeners: {
+       'load': function(){combo_vk_funs_loaded =true;}
+       }
+    });
+
  Ext.define('model_vk_interest',{
             extend:'Ext.data.Model',
         fields: [
@@ -2602,6 +2640,97 @@
        }
     });
 
+ Ext.define('model_vk_streets',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_streetsid',type: 'string'}
+            ,{name: 'id',type: 'string'}
+            ,{name: 'instanceid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+            ,{name:'vkid', type: 'number'}
+            ,{name:'title', type: 'string'}
+        ]
+    });
+
+
+ Ext.define('model_vk_stations',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_stationsid',type: 'string'}
+            ,{name: 'id',type: 'string'}
+            ,{name: 'instanceid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+            ,{name:'vkid', type: 'number'}
+            ,{name:'title', type: 'string'}
+        ]
+    });
+
+ Ext.define('cmbmodel_vk_stations',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_stationsid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+        ]
+    });
+    var cmbstore_vk_stations_loaded=false;
+    var cmbstore_vk_stations = Ext.create('Ext.data.Store', {
+        model:'cmbmodel_vk_stations',
+        autoLoad: false,
+        autoSync: false,
+        proxy: {
+            type:   'ajax',
+                url:   rootURL+'index.php/c_vk_stations/getRows',
+            reader: {
+                type:   'json'
+                ,rootProperty:  'data'
+                ,successProperty:  'success'
+                ,messageProperty:  'msg'
+            }
+        },
+       listeners: {
+       'load': function(){combo_vk_stations_loaded =true;}
+       }
+    });
+
+ Ext.define('model_vk_districts',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_districtsid',type: 'string'}
+            ,{name: 'id',type: 'string'}
+            ,{name: 'instanceid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+            ,{name:'vkid', type: 'number'}
+            ,{name:'title', type: 'string'}
+        ]
+    });
+
+ Ext.define('cmbmodel_vk_districts',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_districtsid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+        ]
+    });
+    var cmbstore_vk_districts_loaded=false;
+    var cmbstore_vk_districts = Ext.create('Ext.data.Store', {
+        model:'cmbmodel_vk_districts',
+        autoLoad: false,
+        autoSync: false,
+        proxy: {
+            type:   'ajax',
+                url:   rootURL+'index.php/c_vk_districts/getRows',
+            reader: {
+                type:   'json'
+                ,rootProperty:  'data'
+                ,successProperty:  'success'
+                ,messageProperty:  'msg'
+            }
+        },
+       listeners: {
+       'load': function(){combo_vk_districts_loaded =true;}
+       }
+    });
+
  Ext.define('model_vk_town',{
             extend:'Ext.data.Model',
         fields: [
@@ -2644,6 +2773,21 @@
        'load': function(){combo_vk_town_loaded =true;}
        }
     });
+
+ Ext.define('model_vk_schools',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_schoolsid',type: 'string'}
+            ,{name: 'id',type: 'string'}
+            ,{name: 'instanceid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+            ,{name:'descripton', type: 'string'}
+            ,{name:'school_type', type: 'string'}
+            ,{name:'title', type: 'string'}
+            ,{name:'vkid', type: 'number'}
+        ]
+    });
+
 
  Ext.define('model_vk_tasktype',{
             extend:'Ext.data.Model',
@@ -2824,10 +2968,13 @@
             ,{name:'apps', type: 'string'}
             ,{name:'paying', type: 'number'}
             ,{name:'retargeting_groups_not', type: 'string'}
+            ,{name:'retargeting_groups_not_grid', type: 'string'}
             ,{name:'age_to', type: 'number'}
             ,{name:'apps_not', type: 'string'}
             ,{name:'districts', type: 'string'}
+            ,{name:'districts_grid', type: 'string'}
             ,{name:'stations', type: 'string'}
+            ,{name:'stations_grid', type: 'string'}
             ,{name:'groups_not', type: 'string'}
             ,{name:'uni_to', type: 'number'}
             ,{name:'statuses', type: 'string'}
@@ -2853,6 +3000,7 @@
             ,{name:'cities_not', type: 'string'}
             ,{name:'cities_not_grid', type: 'string'}
             ,{name:'retargeting_groups', type: 'string'}
+            ,{name:'retargeting_groups_grid', type: 'string'}
             ,{name:'streets', type: 'string'}
             ,{name:'user_browsers', type: 'string'}
             ,{name:'user_browsers_grid', type: 'string'}
@@ -3214,6 +3362,32 @@
         ]
     });
 
+ Ext.define('cmbmodel_vk_trginfo',{
+            extend:'Ext.data.Model',
+        fields: [
+            {name: 'vk_trginfoid',type: 'string'}
+            ,{name: 'brief',type: 'string'}
+        ]
+    });
+    var cmbstore_vk_trginfo_loaded=false;
+    var cmbstore_vk_trginfo = Ext.create('Ext.data.Store', {
+        model:'cmbmodel_vk_trginfo',
+        autoLoad: false,
+        autoSync: false,
+        proxy: {
+            type:   'ajax',
+                url:   rootURL+'index.php/c_vk_trginfo/getRows',
+            reader: {
+                type:   'json'
+                ,rootProperty:  'data'
+                ,successProperty:  'success'
+                ,messageProperty:  'msg'
+            }
+        },
+       listeners: {
+       'load': function(){combo_vk_trginfo_loaded =true;}
+       }
+    });
 
  Ext.define('model_vk_trgowner',{
             extend:'Ext.data.Model',
@@ -3265,7 +3439,6 @@
             ,{name:'rotation_grid', type: 'string'}
             ,{name:'vkusr', type: 'string'}
             ,{name:'vkusr_grid', type: 'string'}
-            ,{name:'token', type: 'string'}
             ,{name:'repeat_interval', type: 'number'}
             ,{name:'result', type: 'string'}
         ]

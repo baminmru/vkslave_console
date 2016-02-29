@@ -147,6 +147,23 @@ var actionChangePassword = Ext.create('Ext.Action', {
 
 //actionLoadCategory,actionLoadCountry,actionLoadRegions,actionLoadTowns
 
+
+function LoadSuggestions (btn){
+	if(btn=="yes"){
+		Ext.Ajax.request(
+				{
+					url: rootURL+'index.php/vk/loadsuggestions',
+					method:  'POST',
+					success: function(response){
+						
+						StatusReady("Загрузка справочников завершена");
+					}
+				}
+			);
+	}
+};
+
+
 function LoadCategory (btn){
 	if(btn=="yes"){
 		Ext.Ajax.request(
@@ -318,6 +335,20 @@ var actionLoadUser = Ext.create('Ext.Action', {
 });
 */
 
+var actionLoadSuggestions = Ext.create('Ext.Action', {
+	itemId:'actionLoadSuggestions',
+	text: 'Загрузить (Обновить) справочники таргетинга',
+	iconCls: 'icon-database',
+	disabled:false,
+	handler: function(){
+		Ext.Msg.confirm('Обновить справочники таргетинга',
+			'Загрузить данные ив ВК?',
+			 LoadSuggestions );
+		
+	}
+});
+
+
 
 var actionLoadTowns = Ext.create('Ext.Action', {
 	itemId:'actionLoadTowns',
@@ -482,7 +513,7 @@ function MyInit(){
 					itemId:'actionDict',
 				    text:'Справочники',
                     iconCls:'icon-book_open',
-                    menu:[actionVDAPL,actionVDAPPR,actionVDAST,actionVDCST ,actionVDFRMT,actionVDPT,actionVDAGE,'-',actionVDCAT,actionVDINTER,actionVDMSTAT,actionVDPOS,actionVDREL,'-',actionVDCN,actionVDRG,actionVDT,'-',actionVDDEV,actionVDBRW,actionVDOS] 
+                    menu:[actionVDAPL,actionVDAPPR,actionVDAST,actionVDCST ,actionVDFRMT,actionVDPT,actionVDAGE,'-',actionVDCAT,actionVDINTER,actionVDFUN,actionVDMSTAT,actionVDPOS,actionVDREL,'-',actionVDCN,actionVDRG,actionVDT,'-',actionVDDEV,actionVDBRW,actionVDOS] 
 				
 				}
 				,
@@ -524,7 +555,7 @@ function MyInit(){
 					itemId:'actionLoad',
 				    text:'Тесты',
                     iconCls:'icon-page_white_lightning',
-                    menu:[/*actionLoadUser,actionLoadAds,actionLoadAdsStat, actionLoadAdsDemografy,*/ actionLoadCategory,actionLoadCountry,actionLoadRegions,actionLoadTowns] 
+                    menu:[actionLoadSuggestions, actionLoadCategory,'-',actionLoadCountry,actionLoadRegions,actionLoadTowns] 
 				
 				}
 				

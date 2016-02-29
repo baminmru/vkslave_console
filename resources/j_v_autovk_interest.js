@@ -252,7 +252,7 @@ listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), te
                 var res =Ext.decode(text);
                 var edit = Ext.create('iu.windowObjects');
                 edit.prefix='c_v_autovk_interest';
-                edit.setTitle('Создание документа:Интересы') ;
+                edit.setTitle('Создание документа:Интересы. Категории') ;
                 var p=eval('VDINTER_Panel_'+OTAddMode('VDINTER')+'( res.data, false,null )') ;
                 edit.add(p);
                 edit.show();
@@ -274,7 +274,7 @@ listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), te
    	    if(CheckOperation('VDINTER.edit')!=0 ){
                 var edit = Ext.create('iu.windowObjects');
                 edit.prefix='c_v_autovk_interest';
-                edit.setTitle('Редактирование документа: Интересы') ;
+                edit.setTitle('Редактирование документа: Интересы. Категории') ;
             var p=eval('VDINTER_Panel_'+OTEditMode('VDINTER')+'( selection.get(\'instanceid\'), false, selection )') ;
             edit.add(p);
             edit.show();
@@ -309,7 +309,7 @@ function VDINTER_Jrnl(){
   var VDINTER= Ext.create('Ext.form.Panel', {
        closable: true,
        id:     'vdinter_jrnl',
-       title: 'Интересы',
+       title: 'Интересы. Категории',
       layout: 'fit',
       flex: 1,
       fieldDefaults: {
@@ -344,6 +344,6 @@ Ext.define('ObjectWindow_vdinter', {
     closeAction: 'destroy',
     modal: true,
     iconCls:  'icon-drive_cdr',
-    title:  'Интересы',
+    title:  'Интересы. Категории',
     items:[ ]
 	});

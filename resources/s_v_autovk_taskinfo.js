@@ -4,18 +4,18 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
+            ,{name:'vk_taskinfo_lastdate', type: 'string'}
             ,{name:'vk_taskinfo_vkusr', type: 'string'}
-            ,{name:'vk_taskinfo_camp', type: 'string'}
-            ,{name:'vk_taskinfo_crdate', type: 'string'}
             ,{name:'vk_taskinfo_name', type: 'string'}
-            ,{name:'vk_taskinfo_tasktype', type: 'string'}
             ,{name:'vk_taskinfo_result', type: 'string'}
             ,{name:'vk_taskinfo_ads', type: 'string'}
             ,{name:'vk_taskinfo_repeat_interval', type: 'number'}
-            ,{name:'vk_taskinfo_lastdate', type: 'string'}
-            ,{name:'vk_taskinfo_rotation', type: 'string'}
             ,{name:'vk_taskinfo_isdone', type: 'string'}
+            ,{name:'vk_taskinfo_crdate', type: 'string'}
+            ,{name:'vk_taskinfo_rotation', type: 'string'}
             ,{name:'vk_taskinfo_cab', type: 'string'}
+            ,{name:'vk_taskinfo_camp', type: 'string'}
+            ,{name:'vk_taskinfo_tasktype', type: 'string'}
         ]
     });
 

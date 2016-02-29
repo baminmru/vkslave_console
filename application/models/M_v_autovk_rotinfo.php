@@ -51,12 +51,12 @@ class  M_v_autovk_rotinfo extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_campaign_id,vk_rotinfo__description,vk_rotinfo_name,vk_rotinfo_status','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_status,vk_rotinfo_name,vk_rotinfo_campaign_id,vk_rotinfo__description','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_campaign_id,vk_rotinfo__description,vk_rotinfo_name,vk_rotinfo_status','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_status,vk_rotinfo_name,vk_rotinfo_campaign_id,vk_rotinfo__description','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_campaign_id,vk_rotinfo__description,vk_rotinfo_name,vk_rotinfo_status', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_rotinfo','FieldList'=>'instanceid,id,vk_rotinfo_status,vk_rotinfo_name,vk_rotinfo_campaign_id,vk_rotinfo__description', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

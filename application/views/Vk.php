@@ -106,29 +106,38 @@ function getPage( $VKID )	{
 				$res->close();
 				
 				if(count($result) >0){
-					$vkat=$result[0]['vkat'];
-					$ok = true;		
+					if( "".$result[0]['vkat']!=""){
+						$vkat=$result[0]['vkat'];
+						$ok = true;		
+					}else{
+						goto relogon;
+					}
+				}else{
+					goto relogon;
 				}
 					
 					
 				 
 		}else{
-
+relogon:
 			// Init OAuth 2.0 proxy
 			$oauth2Proxy = new Oauth2Proxy(
-				'5160460', // client id
-				'nb1sdtbD2Px3IFHBn0XI', // client secret
+				'5302646', // client id
+				'LUJf4wzPiglsF5uW8xNe', // client secret
 				'https://oauth.vk.com/access_token', // access token url
 				'https://oauth.vk.com/authorize', // dialog uri
 				'code', // response type
 				'http://vas.baminote2.local', // redirect url   
-				'offline,notify,friends,photos,audio,video,ads' // scope
+				'offline,notify,friends,photos,video,wall,ads' // scope
+				
 			);
 		
 			if($oauth2Proxy->authorize()===true){
 				$vkat=$oauth2Proxy->getAccessToken();
 				$vkid=$oauth2Proxy->getUserId();
 				$ok=true;
+			}else{
+				echo 'Autorization error';
 			};
 				
 		}

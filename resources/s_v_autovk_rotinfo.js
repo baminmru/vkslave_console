@@ -4,10 +4,10 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
+            ,{name:'vk_rotinfo_status', type: 'string'}
+            ,{name:'vk_rotinfo_name', type: 'string'}
             ,{name:'vk_rotinfo_campaign_id', type: 'string'}
             ,{name:'vk_rotinfo__description', type: 'string'}
-            ,{name:'vk_rotinfo_name', type: 'string'}
-            ,{name:'vk_rotinfo_status', type: 'string'}
         ]
     });
 

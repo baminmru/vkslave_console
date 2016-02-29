@@ -4087,21 +4087,28 @@ class B2service
         if (empty($tablename) ||  empty($idfield )   ) 
             return $result;
 			
-		$q='SELECT B2G('.$tablename.'id)  as id ,B2G(instanceid) as instanceid  FROM '. $tablename. ' WHERE '.$idfield.'=? LIMIT 1';
-
-				
-        $stmt = $this->db->prepare($q);
-        $stmt->bind_param('s', $idvalue);
-        $stmt->execute();
-        $stmt->bind_result($id,$iid);
-		$ok=FALSE;
-        while ($stmt->fetch()) {
-            $result['rowid'] = $id;
-			$result['instanceid'] = $iid;
-			$ok=TRUE;
-        }
+		$q='SELECT B2G('.$tablename.'id)  as id ,B2G(instanceid) as instanceid  FROM '. $tablename. ' WHERE '.$idfield.' = ? LIMIT 1';
+		//if ($this->config['log']==true)		
+		//		file_put_contents($this->config['logpath'].'/_debug.txt', '>>>FindByID   : '.$q, FILE_APPEND);
+		try{
 		
-        $stmt->close();
+			$stmt = $this->db->prepare($q);
+			$stmt->bind_param('s', $idvalue);
+			$stmt->execute();
+			$stmt->bind_result($id,$iid);
+			$ok=FALSE;
+			while ($stmt->fetch()) {
+				$result['rowid'] = $id;
+				$result['instanceid'] = $iid;
+				$ok=TRUE;
+			}
+			
+			$stmt->close();
+		}catch(Exception $e){
+			if ($this->config['log']==true)		
+				file_put_contents($this->config['logpath'].'/_debug.txt', '>>>FindByID   : '.$q.'  '.$e->getMessage(), FILE_APPEND);
+			return null;
+		}
 		/*if ($this->config['log']==true)		
 				file_put_contents($this->config['logpath'].'/_debug.txt', '>>>FindByID   : '.json_encode($result) .'
 				', FILE_APPEND);	

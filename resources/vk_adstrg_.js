@@ -611,10 +611,50 @@ allowBlank:true
         y: 40, 
 labelWidth:140,
 
-xtype:  'textfield',
-value:  '',
-name:   'districts',
-itemId:   'districts',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('districts',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('districts', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_districts,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'districts_grid',
+itemId:   'districts_grid',
 fieldLabel:  'Районы',
 allowBlank:true
 }
@@ -627,10 +667,50 @@ allowBlank:true
         y: 75, 
 labelWidth:140,
 
-xtype:  'textfield',
-value:  '',
-name:   'stations',
-itemId:   'stations',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('stations',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('stations', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_stations,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'stations_grid',
+itemId:   'stations_grid',
 fieldLabel:  'Станции',
 allowBlank:true
 }
@@ -765,7 +845,7 @@ select: function ( combo, records, eOpts ) {
         combo.up('form' ).activeRecord.set('interests', ids   );}  
 ,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
 },
-store: cmbstore_vk_interest,
+store: cmbstore_vk_funs,
 valueField:     'brief',
 displayField:   'brief',
 //typeAhead: true,
@@ -821,7 +901,7 @@ select: function ( combo, records, eOpts ) {
         combo.up('form' ).activeRecord.set('interest_categories', ids   );}  
 ,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
 },
-store: cmbstore_vk_category,
+store: cmbstore_vk_interest,
 valueField:     'brief',
 displayField:   'brief',
 //typeAhead: true,
@@ -1136,10 +1216,50 @@ allowBlank:true
         y: 5, 
 labelWidth:140,
 
-xtype:  'textfield',
-value:  '',
-name:   'retargeting_groups',
-itemId:   'retargeting_groups',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('retargeting_groups',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('retargeting_groups', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_trginfo,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'retargeting_groups_grid',
+itemId:   'retargeting_groups_grid',
 fieldLabel:  'Группы ретаргетинга',
 allowBlank:true
 }
@@ -1152,10 +1272,50 @@ allowBlank:true
         y: 5, 
 labelWidth:140,
 
-xtype:  'textfield',
-value:  '',
-name:   'retargeting_groups_not',
-itemId:   'retargeting_groups_not',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('retargeting_groups_not',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('retargeting_groups_not', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_trginfo,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'retargeting_groups_not_grid',
+itemId:   'retargeting_groups_not_grid',
 fieldLabel:  'Исключая группы',
 allowBlank:true
 }
@@ -1673,10 +1833,50 @@ allowBlank:true
         x: 5, 
         y: 55, 
 
-xtype:  'textfield',
-value:  '',
-name:   'districts',
-itemId:   'districts',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('districts',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('districts', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_districts,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'districts_grid',
+itemId:   'districts_grid',
 fieldLabel:  'Районы',
 allowBlank:true
        ,labelWidth: 120
@@ -1689,10 +1889,50 @@ allowBlank:true
         x: 255, 
         y: 55, 
 
-xtype:  'textfield',
-value:  '',
-name:   'stations',
-itemId:   'stations',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('stations',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('stations', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_stations,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'stations_grid',
+itemId:   'stations_grid',
 fieldLabel:  'Станции',
 allowBlank:true
        ,labelWidth: 120
@@ -1829,7 +2069,7 @@ select: function ( combo, records, eOpts ) {
         combo.up('form' ).activeRecord.set('interests', ids   );}  
 ,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
 },
-store: cmbstore_vk_interest,
+store: cmbstore_vk_funs,
 valueField:     'brief',
 displayField:   'brief',
 //typeAhead: true,
@@ -1885,7 +2125,7 @@ select: function ( combo, records, eOpts ) {
         combo.up('form' ).activeRecord.set('interest_categories', ids   );}  
 ,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
 },
-store: cmbstore_vk_category,
+store: cmbstore_vk_interest,
 valueField:     'brief',
 displayField:   'brief',
 //typeAhead: true,
@@ -2204,10 +2444,50 @@ allowBlank:true
         x: 5, 
         y: 0, 
 
-xtype:  'textfield',
-value:  '',
-name:   'retargeting_groups',
-itemId:   'retargeting_groups',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('retargeting_groups',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('retargeting_groups', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_trginfo,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'retargeting_groups_grid',
+itemId:   'retargeting_groups_grid',
 fieldLabel:  'Группы ретаргетинга',
 allowBlank:true
        ,labelWidth: 120
@@ -2220,10 +2500,50 @@ allowBlank:true
         x: 255, 
         y: 0, 
 
-xtype:  'textfield',
-value:  '',
-name:   'retargeting_groups_not',
-itemId:   'retargeting_groups_not',
+xtype:  'combobox',
+multiSelect : true,
+delimiter:',', 
+trigger1Cls:        'x-form-clear-trigger', 
+trigger2Cls:        'x-form-select-trigger', 
+hideTrigger1:false, 
+hideTrigger2:false, 
+onTrigger1Click : function(){
+		this.collapse();
+		this.clearValue();
+		this.up('form' ).activeRecord.set('retargeting_groups_not',null );
+},
+onTrigger2Click : function(){ 
+		if(this.isExpanded) {
+			this.collapse(); 
+		}else{ 
+			if(this.store.count(false)==0) this.store.load();
+			var cv = new String(this.getValue()); 
+			var arrayOfStrings = cv.split(',');
+			this.setValue(arrayOfStrings);
+			this.expand();
+		}
+},
+editable: false,
+listeners:{  
+select: function ( combo, records, eOpts ) {  
+        var ids=''; 
+        for(i=0;i<records.length;i++)  
+        {
+	        if(ids!=''){
+		        ids=ids+';';
+	        }
+	        ids=ids+records[i].get('id');
+        }
+        combo.up('form' ).activeRecord.set('retargeting_groups_not', ids   );}  
+,focus: function()   {  if(this.store.count(false)==0) this.store.load();  } 
+},
+store: cmbstore_vk_trginfo,
+valueField:     'brief',
+displayField:   'brief',
+//typeAhead: true,
+emptyText:      '',
+name:   'retargeting_groups_not_grid',
+itemId:   'retargeting_groups_not_grid',
 fieldLabel:  'Исключая группы',
 allowBlank:true
        ,labelWidth: 120

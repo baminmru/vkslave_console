@@ -4,8 +4,8 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
-            ,{name:'vk_adformat_vkid', type: 'number'}
             ,{name:'vk_adformat_title', type: 'string'}
+            ,{name:'vk_adformat_vkid', type: 'number'}
         ]
     });
 

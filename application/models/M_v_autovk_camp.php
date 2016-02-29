@@ -30,6 +30,18 @@ class  M_v_autovk_camp extends CI_Model {
 			    //case 'value':
 			    	//$cond = '';
 			    	//break;
+			  case 'vk_camp_start_time_le':
+			  $cond = 'vk_camp_start_time<="'.$obj->value.'"';
+			  break;
+			  case 'vk_camp_start_time_ge':
+			  $cond = 'vk_camp_start_time>="'.$obj->value.'"';
+			  break;
+			  case 'vk_camp_all_limit_le':
+			  $cond = 'vk_camp_all_limit<='.$obj->value;
+			  break;
+			  case 'vk_camp_all_limit_ge':
+			  $cond = 'vk_camp_all_limit>='.$obj->value;
+			  break;
 			  case 'vk_camp_day_limit_le':
 			  $cond = 'vk_camp_day_limit<='.$obj->value;
 			  break;
@@ -41,18 +53,6 @@ class  M_v_autovk_camp extends CI_Model {
 			  break;
 			  case 'vk_camp_stop_time_ge':
 			  $cond = 'vk_camp_stop_time>="'.$obj->value.'"';
-			  break;
-			  case 'vk_camp_all_limit_le':
-			  $cond = 'vk_camp_all_limit<='.$obj->value;
-			  break;
-			  case 'vk_camp_all_limit_ge':
-			  $cond = 'vk_camp_all_limit>='.$obj->value;
-			  break;
-			  case 'vk_camp_start_time_le':
-			  $cond = 'vk_camp_start_time<="'.$obj->value.'"';
-			  break;
-			  case 'vk_camp_start_time_ge':
-			  $cond = 'vk_camp_start_time>="'.$obj->value.'"';
 			  break;
 		    	default:
 			    	if(isset($obj->value))
@@ -75,12 +75,12 @@ class  M_v_autovk_camp extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,vk_camp_day_limit,vk_camp_vk_usr,vk_camp_name,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_status,vk_camp_campagin_id,vk_camp_all_limit,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_prj,vk_camp_vk_cab','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_all_limit,vk_camp_prj,vk_camp_name,vk_camp_status,vk_camp_day_limit,vk_camp_vk_usr,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_campagin_id,vk_camp_vk_cab','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,vk_camp_day_limit,vk_camp_vk_usr,vk_camp_name,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_status,vk_camp_campagin_id,vk_camp_all_limit,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_prj,vk_camp_vk_cab','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_all_limit,vk_camp_prj,vk_camp_name,vk_camp_status,vk_camp_day_limit,vk_camp_vk_usr,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_campagin_id,vk_camp_vk_cab','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,vk_camp_day_limit,vk_camp_vk_usr,vk_camp_name,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_status,vk_camp_campagin_id,vk_camp_all_limit,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_prj,vk_camp_vk_cab', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_camp','FieldList'=>'instanceid,id,DATE_FORMAT(vk_camp_start_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_start_time,vk_camp_all_limit,vk_camp_prj,vk_camp_name,vk_camp_status,vk_camp_day_limit,vk_camp_vk_usr,DATE_FORMAT(vk_camp_stop_time,\'%Y-%m-%d %H:%i:%s\') vk_camp_stop_time,vk_camp_campagin_id,vk_camp_vk_cab', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

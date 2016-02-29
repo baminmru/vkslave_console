@@ -59,11 +59,11 @@ Ext.define('grid_autovk_camp', {
             ,
             {text: "Кабинет", width:120, dataIndex: 'vk_camp_vk_cab', sortable: true}
             ,
+            {text: "Название", width:120, dataIndex: 'vk_camp_name', sortable: true}
+            ,
             {text: "ID", width:120, dataIndex: 'vk_camp_campagin_id', sortable: true}
             ,
             {text: "Статус", width:120, dataIndex: 'vk_camp_status', sortable: true}
-            ,
-            {text: "Название", width:120, dataIndex: 'vk_camp_name', sortable: true}
             ,
             {text: "Общий лимит", width:120, dataIndex: 'vk_camp_all_limit', sortable: true}
             ,
@@ -177,6 +177,17 @@ hideLabel:  true
 {
 
 value:  '',
+name:   'vk_camp_name',
+itemId:   'vk_camp_name',
+fieldLabel:  '',
+emptyText:      'Название',
+hideLabel:  true,
+listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Название'});}}
+}
+,
+{
+
+value:  '',
 name:   'vk_camp_campagin_id',
 itemId:   'vk_camp_campagin_id',
 fieldLabel:  '',
@@ -217,17 +228,6 @@ itemId:   'vk_camp_status_id',
 fieldLabel:  '',
 emptyText:      'Статус',
 hideLabel:  true
-}
-,
-{
-
-value:  '',
-name:   'vk_camp_name',
-itemId:   'vk_camp_name',
-fieldLabel:  '',
-emptyText:      'Название',
-hideLabel:  true,
-listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Название'});}}
 }
 ,
 {

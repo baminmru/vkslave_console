@@ -37,7 +37,6 @@ var p1_valid=false;
                     ,camp: active.get('camp') 
                     ,ads: active.get('ads') 
                     ,rotation: active.get('rotation') 
-                    ,token: active.get('token') 
                 }
                 , success: function(response){
                 var text = response.responseText;
@@ -299,12 +298,6 @@ itemId:   'vkusr_grid',
 fieldLabel:  'Пользователь',
 labelClsExtra:'x-item-mandatory',
 allowBlank:false
-}
-,
-{
-xtype:  'hidden',
-name:   'token',
-fieldLabel:  'Токен'
 }
        ],
        height: 165 
@@ -694,12 +687,6 @@ labelClsExtra:'x-item-mandatory',
 allowBlank:false
        ,labelWidth: 120
 }
-,
-{
-xtype:  'hidden',
-name:   'token',
-fieldLabel:  'Токен'
-}
        ], width: 770,
        height: 185 
         }
@@ -932,7 +919,6 @@ allowBlank:true
                     ,camp: active.get('camp') 
                     ,ads: active.get('ads') 
                     ,rotation: active.get('rotation') 
-                    ,token: active.get('token') 
                 }
                 , success: function(response){
                 var text = response.responseText;

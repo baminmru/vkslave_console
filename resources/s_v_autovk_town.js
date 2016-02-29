@@ -4,10 +4,10 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
-            ,{name:'vk_town_region_id', type: 'string'}
-            ,{name:'vk_town_vkid', type: 'number'}
             ,{name:'vk_town_country_id', type: 'string'}
             ,{name:'vk_town_title', type: 'string'}
+            ,{name:'vk_town_vkid', type: 'number'}
+            ,{name:'vk_town_region_id', type: 'string'}
         ]
     });
 

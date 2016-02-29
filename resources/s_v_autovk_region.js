@@ -4,9 +4,9 @@
         fields: [
             {name: 'instanceid',type: 'string'}
             ,{name: 'id',type: 'string'}
+            ,{name:'vk_region_title', type: 'string'}
             ,{name:'vk_region_vkid', type: 'number'}
             ,{name:'vk_region_country_id', type: 'string'}
-            ,{name:'vk_region_title', type: 'string'}
         ]
     });
 

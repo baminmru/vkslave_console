@@ -30,17 +30,17 @@ class  M_v_autovk_trginfo extends CI_Model {
 			    //case 'value':
 			    	//$cond = '';
 			    	//break;
-			  case 'vk_trginfo_lifetime_le':
-			  $cond = 'vk_trginfo_lifetime<='.$obj->value;
-			  break;
-			  case 'vk_trginfo_lifetime_ge':
-			  $cond = 'vk_trginfo_lifetime>='.$obj->value;
-			  break;
 			  case 'vk_trginfo_audience_count_le':
 			  $cond = 'vk_trginfo_audience_count<='.$obj->value;
 			  break;
 			  case 'vk_trginfo_audience_count_ge':
 			  $cond = 'vk_trginfo_audience_count>='.$obj->value;
+			  break;
+			  case 'vk_trginfo_lifetime_le':
+			  $cond = 'vk_trginfo_lifetime<='.$obj->value;
+			  break;
+			  case 'vk_trginfo_lifetime_ge':
+			  $cond = 'vk_trginfo_lifetime>='.$obj->value;
 			  break;
 		    	default:
 			    	if(isset($obj->value))
@@ -63,12 +63,12 @@ class  M_v_autovk_trginfo extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_lifetime,vk_trginfo_vkid,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_pixel,vk_trginfo_audience_count,vk_trginfo_trgdomain,vk_trginfo_name','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_vkid,vk_trginfo_name,vk_trginfo_audience_count,vk_trginfo_lifetime,vk_trginfo_pixel,vk_trginfo_trgdomain','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_lifetime,vk_trginfo_vkid,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_pixel,vk_trginfo_audience_count,vk_trginfo_trgdomain,vk_trginfo_name','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_vkid,vk_trginfo_name,vk_trginfo_audience_count,vk_trginfo_lifetime,vk_trginfo_pixel,vk_trginfo_trgdomain','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_lifetime,vk_trginfo_vkid,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_pixel,vk_trginfo_audience_count,vk_trginfo_trgdomain,vk_trginfo_name', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_trginfo','FieldList'=>'instanceid,id,vk_trginfo_info,vk_trginfo_cab,vk_trginfo_vkid,vk_trginfo_name,vk_trginfo_audience_count,vk_trginfo_lifetime,vk_trginfo_pixel,vk_trginfo_trgdomain', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

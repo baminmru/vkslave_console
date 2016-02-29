@@ -59,6 +59,12 @@
      <script type='text/javascript' src='resources/vdfrmt_.js'></script>
 <!--   type:VDFRMT default mode end  -->
 
+<!--   type:VDFUN default mode -->
+
+     <script type='text/javascript' src='resources/vk_funs_.js'></script>
+     <script type='text/javascript' src='resources/vdfun_.js'></script>
+<!--   type:VDFUN default mode end  -->
+
 <!--   type:VDINTER default mode -->
 
      <script type='text/javascript' src='resources/vk_interest_.js'></script>
@@ -104,6 +110,10 @@
 <!--   type:VDT default mode -->
 
      <script type='text/javascript' src='resources/vk_town_.js'></script>
+     <script type='text/javascript' src='resources/vk_streets_.js'></script>
+     <script type='text/javascript' src='resources/vk_stations_.js'></script>
+     <script type='text/javascript' src='resources/vk_districts_.js'></script>
+     <script type='text/javascript' src='resources/vk_schools_.js'></script>
      <script type='text/javascript' src='resources/vdt_.js'></script>
 <!--   type:VDT default mode end  -->
 
@@ -292,6 +302,12 @@
      <script type='text/javascript' src='resources/s_v_autovk_adformat.js'></script>
      <script type='text/javascript' src='resources/j_v_autovk_adformat.js'></script>
 <!--   journal :autovk_adformat end -->
+
+<!--   journal :autovk_funs -->
+
+     <script type='text/javascript' src='resources/s_v_autovk_funs.js'></script>
+     <script type='text/javascript' src='resources/j_v_autovk_funs.js'></script>
+<!--   journal :autovk_funs end -->
 
 <!--   journal :autovk_interest -->
 

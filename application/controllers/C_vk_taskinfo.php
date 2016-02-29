@@ -22,7 +22,6 @@
                 ,'camp' =>   $this->input->get_post('camp', TRUE)
                 ,'ads' =>   $this->input->get_post('ads', TRUE)
                 ,'rotation' =>   $this->input->get_post('rotation', TRUE)
-                ,'token' =>   $this->input->get_post('token', TRUE)
             );
             $vk_taskinfo = $this->m_vk_taskinfo->setRow($data);
             print json_encode($vk_taskinfo);
@@ -44,7 +43,6 @@
                 ,'camp' =>   $this->input->get_post('camp', TRUE)
                 ,'ads' =>   $this->input->get_post('ads', TRUE)
                 ,'rotation' =>   $this->input->get_post('rotation', TRUE)
-                ,'token' =>   $this->input->get_post('token', TRUE)
             );
                 $instanceid =  $this->input->get_post('instanceid', TRUE);
             $vk_taskinfo= $this->m_vk_taskinfo->newRow($instanceid,$data);

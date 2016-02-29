@@ -57,12 +57,12 @@ class  M_v_autovk_brkinfo extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate,vk_brkinfo_ads,vk_brkinfo_rotation,vk_brkinfo_name','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,vk_brkinfo_name,vk_brkinfo_ads,vk_brkinfo_rotation,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate,vk_brkinfo_ads,vk_brkinfo_rotation,vk_brkinfo_name','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,vk_brkinfo_name,vk_brkinfo_ads,vk_brkinfo_rotation,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate,vk_brkinfo_ads,vk_brkinfo_rotation,vk_brkinfo_name', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_brkinfo','FieldList'=>'instanceid,id,vk_brkinfo_name,vk_brkinfo_ads,vk_brkinfo_rotation,DATE_FORMAT(vk_brkinfo_crdate,\'%Y-%m-%d %H:%i:%s\') vk_brkinfo_crdate', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

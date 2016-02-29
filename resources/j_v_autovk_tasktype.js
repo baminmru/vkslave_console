@@ -55,9 +55,11 @@ Ext.define('grid_autovk_tasktype', {
                 }]
             }],
         columns: [
-            {text: "Название", width:400, dataIndex: 'vk_tasktype_title', sortable: true}
+            {text: "Название", width:267, dataIndex: 'vk_tasktype_title', sortable: true}
             ,
-            {text: "Периодическая задача", width:400, dataIndex: 'vk_tasktype_repeatabletask', sortable: true}
+            {text: "Периодическая задача", width:267, dataIndex: 'vk_tasktype_repeatabletask', sortable: true}
+            ,
+            {text: "Интервал (мин)", width:267, dataIndex: 'vk_tasktype_definterval', sortable: true}
         ]
         ,
         bbar: Ext.create('Ext.PagingToolbar', {
@@ -132,6 +134,30 @@ fieldLabel:  '',
 emptyText:      'Периодическая задача',
 hideLabel:  true,
 listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Периодическая задача'});}}
+}
+,
+{
+
+xtype:  'numberfield',
+value:  '0',
+name:   'vk_tasktype_definterval_ge',
+itemId:   'vk_tasktype_definterval_ge',
+fieldLabel:  'Интервал (мин) >=',
+emptyText:      'не задано',
+submitEmptyText: false,
+listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Интервал (мин) >='});}}
+}
+,
+{
+
+xtype:  'numberfield',
+value:  '0',
+name:   'vk_tasktype_definterval_le',
+itemId:   'vk_tasktype_definterval_le',
+fieldLabel:  'Интервал (мин) <=',
+emptyText:      'не задано',
+submitEmptyText: false,
+listeners: {render: function(e) {Ext.QuickTips.register({  target: e.getEl(), text: 'Интервал (мин) <='});}}
 }
 					],
                     buttons: 

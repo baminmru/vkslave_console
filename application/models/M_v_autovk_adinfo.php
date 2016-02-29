@@ -30,17 +30,17 @@ class  M_v_autovk_adinfo extends CI_Model {
 			    //case 'value':
 			    	//$cond = '';
 			    	//break;
-			  case 'vk_adinfo_cpm_le':
-			  $cond = 'vk_adinfo_cpm<='.$obj->value;
-			  break;
-			  case 'vk_adinfo_cpm_ge':
-			  $cond = 'vk_adinfo_cpm>='.$obj->value;
-			  break;
 			  case 'vk_adinfo_cpc_le':
 			  $cond = 'vk_adinfo_cpc<='.$obj->value;
 			  break;
 			  case 'vk_adinfo_cpc_ge':
 			  $cond = 'vk_adinfo_cpc>='.$obj->value;
+			  break;
+			  case 'vk_adinfo_cpm_le':
+			  $cond = 'vk_adinfo_cpm<='.$obj->value;
+			  break;
+			  case 'vk_adinfo_cpm_ge':
+			  $cond = 'vk_adinfo_cpm>='.$obj->value;
 			  break;
 			  case 'vk_adinfo_all_limit_le':
 			  $cond = 'vk_adinfo_all_limit<='.$obj->value;
@@ -69,12 +69,12 @@ class  M_v_autovk_adinfo extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_campaign_id,vk_adinfo_impression_limit,vk_adinfo_ad_platform,vk_adinfo_cpm,vk_adinfo_cost_type,vk_adinfo_video,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_ad_format,vk_adinfo_preview_link,vk_adinfo_name,vk_adinfo_approved,vk_adinfo_status,vk_adinfo_all_limit,vk_adinfo_link_domain,vk_adinfo_title,vk_adinfo_age_restriction,vk_adinfo_image_src,vk_adinfo_category1_id,vk_adinfo_ads_id,vk_adinfo_disclamer','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_ad_format,vk_adinfo_campaign_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_name,vk_adinfo_link_domain,vk_adinfo_ad_platform,vk_adinfo_category1_id,vk_adinfo_approved,vk_adinfo_disclamer,vk_adinfo_cpm,vk_adinfo_ads_id,vk_adinfo_age_restriction,vk_adinfo_status,vk_adinfo_preview_link,vk_adinfo_title,vk_adinfo_all_limit,vk_adinfo_image_src,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_impression_limit,vk_adinfo_video,vk_adinfo_cost_type','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_campaign_id,vk_adinfo_impression_limit,vk_adinfo_ad_platform,vk_adinfo_cpm,vk_adinfo_cost_type,vk_adinfo_video,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_ad_format,vk_adinfo_preview_link,vk_adinfo_name,vk_adinfo_approved,vk_adinfo_status,vk_adinfo_all_limit,vk_adinfo_link_domain,vk_adinfo_title,vk_adinfo_age_restriction,vk_adinfo_image_src,vk_adinfo_category1_id,vk_adinfo_ads_id,vk_adinfo_disclamer','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_ad_format,vk_adinfo_campaign_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_name,vk_adinfo_link_domain,vk_adinfo_ad_platform,vk_adinfo_category1_id,vk_adinfo_approved,vk_adinfo_disclamer,vk_adinfo_cpm,vk_adinfo_ads_id,vk_adinfo_age_restriction,vk_adinfo_status,vk_adinfo_preview_link,vk_adinfo_title,vk_adinfo_all_limit,vk_adinfo_image_src,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_impression_limit,vk_adinfo_video,vk_adinfo_cost_type','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_campaign_id,vk_adinfo_impression_limit,vk_adinfo_ad_platform,vk_adinfo_cpm,vk_adinfo_cost_type,vk_adinfo_video,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_ad_format,vk_adinfo_preview_link,vk_adinfo_name,vk_adinfo_approved,vk_adinfo_status,vk_adinfo_all_limit,vk_adinfo_link_domain,vk_adinfo_title,vk_adinfo_age_restriction,vk_adinfo_image_src,vk_adinfo_category1_id,vk_adinfo_ads_id,vk_adinfo_disclamer', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_adinfo','FieldList'=>'instanceid,id,vk_adinfo_ad_format,vk_adinfo_campaign_id,vk_adinfo_cpc,vk_adinfo__description,vk_adinfo_name,vk_adinfo_link_domain,vk_adinfo_ad_platform,vk_adinfo_category1_id,vk_adinfo_approved,vk_adinfo_disclamer,vk_adinfo_cpm,vk_adinfo_ads_id,vk_adinfo_age_restriction,vk_adinfo_status,vk_adinfo_preview_link,vk_adinfo_title,vk_adinfo_all_limit,vk_adinfo_image_src,vk_adinfo_link_url,vk_adinfo_category2_id,vk_adinfo_impression_limit,vk_adinfo_video,vk_adinfo_cost_type', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

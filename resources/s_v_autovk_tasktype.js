@@ -6,6 +6,7 @@
             ,{name: 'id',type: 'string'}
             ,{name:'vk_tasktype_repeatabletask', type: 'string'}
             ,{name:'vk_tasktype_title', type: 'string'}
+            ,{name:'vk_tasktype_definterval', type: 'number'}
         ]
     });
 

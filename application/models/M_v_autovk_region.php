@@ -57,12 +57,12 @@ class  M_v_autovk_region extends CI_Model {
 	    log_message('error','Exception: '. $e->getMessage());
     }
 	 if (isset($offset) && isset($limit)) {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_vkid,vk_region_country_id,vk_region_title','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_title,vk_region_vkid,vk_region_country_id','Sort'=>$sort, 'WhereClause' => $whereclause,'Limit'=>$limit,'Offset'=>$offset));
 	} else {
-	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_vkid,vk_region_country_id,vk_region_title','Sort'=>$sort, 'WhereClause' => $whereclause));
+	    $res = $this->jservice->get(array('Action' => 'GetViewData', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_title,vk_region_vkid,vk_region_country_id','Sort'=>$sort, 'WhereClause' => $whereclause));
 	}
 	$root = new stdClass();
-	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_vkid,vk_region_country_id,vk_region_title', 'WhereClause' => $whereclause));
+	$root->total = $this->jservice->get(array('Action' => 'CountView', 'ViewName' => 'v_autovk_region','FieldList'=>'instanceid,id,vk_region_title,vk_region_vkid,vk_region_country_id', 'WhereClause' => $whereclause));
 	$root->success = true;
 	$root->rows = $res;
 	return $root;

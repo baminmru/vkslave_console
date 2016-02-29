@@ -1,4 +1,23 @@
 ﻿
+var actionVDAGE = Ext.create('Ext.Action', {
+    itemId:             'actionVDAGE',
+    text:               'Возрастные ограничения',
+    iconCls:            'icon-sport_soccer',
+			 disabled:defaultMenuDisabled,
+			 hidden:defaultMenuHidden,
+             handler: function(){
+			var j=Ext.getCmp('vdage_jrnl');
+			if(j==null){
+				j=VDAGE_Jrnl();
+				j.iconCls='icon-sport_soccer';
+				contentPanel.add(j);
+				contentPanel.setActiveTab(j);
+			}
+			else{
+				contentPanel.setActiveTab(j);
+			}
+             }
+});
 var actionVDAPL = Ext.create('Ext.Action', {
     itemId:             'actionVDAPL',
     text:               'Платформа',
@@ -170,9 +189,28 @@ var actionVDFRMT = Ext.create('Ext.Action', {
 			}
              }
 });
+var actionVDFUN = Ext.create('Ext.Action', {
+    itemId:             'actionVDFUN',
+    text:               'Интересы. Текст',
+    iconCls:            'icon-film',
+			 disabled:defaultMenuDisabled,
+			 hidden:defaultMenuHidden,
+             handler: function(){
+			var j=Ext.getCmp('vdfun_jrnl');
+			if(j==null){
+				j=VDFUN_Jrnl();
+				j.iconCls='icon-film';
+				contentPanel.add(j);
+				contentPanel.setActiveTab(j);
+			}
+			else{
+				contentPanel.setActiveTab(j);
+			}
+             }
+});
 var actionVDINTER = Ext.create('Ext.Action', {
     itemId:             'actionVDINTER',
-    text:               'Интересы',
+    text:               'Интересы. Категории',
     iconCls:            'icon-drive_cdr',
 			 disabled:defaultMenuDisabled,
 			 hidden:defaultMenuHidden,
@@ -834,9 +872,28 @@ var actionVDFRMT = Ext.create('Ext.Action', {
 			}
         }
     });
+var actionVDFUN = Ext.create('Ext.Action', {
+        itemId:  'actionVDFUN',
+        text:   'Интересы. Текст',
+        iconCls:  'icon-film',
+			 disabled:defaultMenuDisabled,
+			 hidden:defaultMenuHidden,
+			handler: function(){
+			var j=Ext.getCmp('vdfun');
+			if(j==null){
+				j=eval('VDFUN_Panel_'+OTEditMode('VDFUN')+'(\'{7DA638F8-3F1E-4597-B368-0C0B47D596C4}\', true)');
+        j.iconCls= 'icon-film';
+				contentPanel.add(j);
+				contentPanel.setActiveTab(j);
+			}
+			else{
+				contentPanel.setActiveTab(j);
+			}
+        }
+    });
 var actionVDINTER = Ext.create('Ext.Action', {
         itemId:  'actionVDINTER',
-        text:   'Интересы',
+        text:   'Интересы. Категории',
         iconCls:  'icon-drive_cdr',
 			 disabled:defaultMenuDisabled,
 			 hidden:defaultMenuHidden,
@@ -864,6 +921,25 @@ var actionVDMSTAT = Ext.create('Ext.Action', {
 			if(j==null){
 				j=eval('VDMSTAT_Panel_'+OTEditMode('VDMSTAT')+'(\'{05A0E0B7-4FA7-432B-9AA5-35C3B665512D}\', true)');
         j.iconCls= 'icon-group';
+				contentPanel.add(j);
+				contentPanel.setActiveTab(j);
+			}
+			else{
+				contentPanel.setActiveTab(j);
+			}
+        }
+    });
+var actionVDOS = Ext.create('Ext.Action', {
+        itemId:  'actionVDOS',
+        text:   'ОС',
+        iconCls:  'icon-computer',
+			 disabled:defaultMenuDisabled,
+			 hidden:defaultMenuHidden,
+			handler: function(){
+			var j=Ext.getCmp('vdos');
+			if(j==null){
+				j=eval('VDOS_Panel_'+OTEditMode('VDOS')+'(\'{CD999811-051C-40E6-A946-556F4E355F94}\', true)');
+        j.iconCls= 'icon-computer';
 				contentPanel.add(j);
 				contentPanel.setActiveTab(j);
 			}
@@ -940,25 +1016,6 @@ var actionVDRG = Ext.create('Ext.Action', {
 			if(j==null){
 				j=eval('VDRG_Panel_'+OTEditMode('VDRG')+'(\'{EF53DB60-5DEB-4971-9798-B8E9D0EAEDAC}\', true)');
         j.iconCls= 'icon-chart_pie';
-				contentPanel.add(j);
-				contentPanel.setActiveTab(j);
-			}
-			else{
-				contentPanel.setActiveTab(j);
-			}
-        }
-    });
-var actionVDT = Ext.create('Ext.Action', {
-        itemId:  'actionVDT',
-        text:   'Города',
-        iconCls:  'icon-building',
-			 disabled:defaultMenuDisabled,
-			 hidden:defaultMenuHidden,
-			handler: function(){
-			var j=Ext.getCmp('vdt');
-			if(j==null){
-				j=eval('VDT_Panel_'+OTEditMode('VDT')+'(\'{5FCB1238-AA3F-43F3-8EEA-5ED3AFA0AF2D}\', true)');
-        j.iconCls= 'icon-building';
 				contentPanel.add(j);
 				contentPanel.setActiveTab(j);
 			}
